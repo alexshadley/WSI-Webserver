@@ -1,7 +1,8 @@
 from slideserver import app
-from flask import render_template, make_response
+from flask import render_template, make_response, request, jsonify
 from openslide import OpenSlide, deepzoom
 from io import BytesIO
+from slideserver.qupath import detect_nuclei
 
 @app.before_first_request
 def setup():
@@ -30,3 +31,9 @@ def tile(level, col, row, format):
     response = make_response(buf.getvalue())
     response.mimetype = 'image/%s' % format
     return response
+
+@app.route('/userselection/', methods=['POST'])
+def user_selection():
+    print(request.form)
+    qupathParams = {'x': int(request.form['x']), 'y': int(request.form['y']), 'height': int(request.form['height']), 'width': int(request.form['width'])}
+    return jsonify(detect_nuclei(qupathParams))
