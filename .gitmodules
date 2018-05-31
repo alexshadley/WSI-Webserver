@@ -1,6 +1,3 @@
 [submodule "slideserver/static/openseadragonselection"]
 	path = slideserver/static/openseadragonselection
 	url = https://github.com/picturae/openseadragonselection.git
-[submodule "slideserver/static/OpenSeadragonCanvasOverlay"]
-	path = slideserver/static/OpenSeadragonCanvasOverlay
-	url = https://github.com/altert/OpenSeadragonCanvasOverlay.git
