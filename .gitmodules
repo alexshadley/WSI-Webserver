@@ -1,3 +1,6 @@
 [submodule "slideserver/static/openseadragonselection"]
 	path = slideserver/static/openseadragonselection
 	url = https://github.com/picturae/openseadragonselection.git
+[submodule "slideserver/static/OpenseadragonFabricjsOverlay"]
+	path = slideserver/static/OpenseadragonFabricjsOverlay
+	url = https://github.com/altert/OpenseadragonFabricjsOverlay.git
