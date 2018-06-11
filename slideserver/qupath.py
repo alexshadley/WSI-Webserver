@@ -2,7 +2,7 @@ import subprocess
 import os
 import json
 
-IMAGE_PATH = '/home/alex/HCI/slide-webserver/slideserver/static/testslide.svs'
+IMAGE_PATH = '/home/alex/HCI/slide-webserver/slideserver/static/testslide-qupath.svs'
 SCRIPT_PATH = '/home/alex/IdeaProjects/QuPathTestScript/Nuclei_Detection.groovy'
 
 def detect_nuclei(params):

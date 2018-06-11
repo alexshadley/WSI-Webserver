@@ -3,9 +3,18 @@
     <script type="text/javascript" src="/static/jquery-3.3.1.js"></script>
     <script type="text/javascript" src="/static/openseadragon/openseadragon.min.js"></script>
     <script type="text/javascript" src="/static/openseadragonselection/dist/openseadragonselection.js"></script>
+    <script type="text/javascript" src="/static/OpenseadragonFabricjsOverlay/openseadragon-fabricjs-overlay.js"></script>
+    <script type="text/javascript" src="/static/OpenseadragonFabricjsOverlay/fabric/fabric.adapted.js"></script>
     <script type="text/javascript" src="/static/index.js"></script>
+
+     <link rel="stylesheet" type="text/css" href="/static/index.css">
 </head>
 <body>
-    <div id="slide-view"></div>
+    <div id="slide-view" class="wsi-container"></div>
+    <div id="menu" class="menu-column">
+        <h1>Options</h1>
+        Hide Annotations:<input id="hide-annotations" type="checkbox">
+        <h5>Download Selection Data:</h5>
+    </div>
 </body>
 </html>
