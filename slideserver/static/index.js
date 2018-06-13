@@ -1,16 +1,22 @@
+var ANNOTATION_RADIUS = 3.0;
+
 var selectionCount = 0;
 var annotations = [];
 
-function drawNuclei(nuclei, canvas) {
+function drawNuclei(nuclei, canvas, drawAnnotations) {
     for (var i = 0; i < nuclei.length; i++) {
         var circ = new fabric.Circle({
-            left: Math.round(nuclei[i].x),
-            top: Math.round(nuclei[i].y),
+            left: Math.round(nuclei[i].x - ANNOTATION_RADIUS/2),
+            top: Math.round(nuclei[i].y - ANNOTATION_RADIUS/2),
             fill: 'red',
-            radius: 3
+            radius: ANNOTATION_RADIUS
         });
         annotations.push(circ);
-        canvas.add(circ);
+
+        // only add annotations to the screen if hide annotations is unchecked
+        if(drawAnnotations) {
+            canvas.add(circ);
+        }
     }
 }
 
@@ -26,18 +32,6 @@ $(document).ready(function(){
         var overlayScale = world.getItemAt(0).getContentSize().x;
         viewer.overlay = viewer.fabricjsOverlay({scale: overlayScale});
     });
-
-    /*var overlay = viewer.fabricjsOverlay({scale: 2});
-
-    var rect = new fabric.Rect({
-        left: .5,
-        top: .5,
-        fill: 'blue',
-        width: .2,
-        height: .2
-    });
-
-    overlay.fabricCanvas().add(rect);*/
 
     var selection = viewer.selection({
         onSelection: function(rect){
@@ -58,10 +52,10 @@ $(document).ready(function(){
                     button.innerText = 'Selection ' + selectionCount;
 
                     a.appendChild(button);
-
                     $('#menu').append(a);
 
-                    drawNuclei(data, viewer.overlay.fabricCanvas());
+                    drawNuclei(data, viewer.overlay.fabricCanvas(), !$('#hide-annotations').prop('checked'));
+
                 });
         }
     });
