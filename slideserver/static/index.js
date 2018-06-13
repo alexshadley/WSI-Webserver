@@ -30,7 +30,7 @@ $(document).ready(function(){
     viewer.addHandler('open', function (event) {
         var world = event.eventSource.world;
         var overlayScale = world.getItemAt(0).getContentSize().x;
-        viewer.overlay = viewer.fabricjsOverlay({scale: overlayScale});
+        viewer.overlay = viewer.fabricjsOverlay({scale: overlayScale, static: true});
     });
 
     var selection = viewer.selection({
